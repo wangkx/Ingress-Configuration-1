@@ -1,0 +1,3 @@
+EXEC: Creating PIPE program process : '/opt/HPCCSystems/8.0.20/clienttools/bin/eclcc -E "./ecl/DISTRIBUTE_Example.ecl"' - hasinput=0, hasoutput=1 stderrbufsize=0
+EXEC: Pipe: process 94490 complete 0
+jsocket(9,2555) shutdown err = 57 : C!:63876 -> 40.88.221.36:8010 (3)

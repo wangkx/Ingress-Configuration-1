@@ -1,0 +1,37 @@
+get_wu_timers()
+{
+  wufile=$1
+  start_time_in_ms=$(sed -n '/<Statistic/,/\/>/{
+    /<Statistic/ { h; b next }
+    /\/>/ { H; x; /kind=\"WhenCreated\".*s=\"global\"/p; b next }
+    H
+    :next
+  }' $wufile | grep "value=" | cut -d'"' -f 2)
+
+
+  end_time_in_ms=$(sed -n '/<Statistic/,/\/>/{
+    /<Statistic/ { h; b next }
+    /\/>/ { H; x; /kind=\"WhenFinished\".*s=\"global\"/p; b next }
+    H
+    :next
+  }' $wufile | grep "value=" | cut -d'"' -f 2)
+
+  #echo "start: $start_time_in_ts, end: $end_time_in_ts"
+  wu_time="$(echo "scale=3; ($end_time_in_ms - $start_time_in_ms) / (1000000) " | bc)s"
+
+  compile_time_in_ns=$(sed -n '/<Statistic/,/\/>/{
+    /<Statistic/ { h; b next }
+    /\/>/ { H; x; /kind=\"TimeElapsed\".*s=\"compile\".*scope=\"compile\"/p; b next }
+    H
+    :next
+  }' $wufile | grep "value=" | cut -d'"' -f 2)
+  compile_time="$(echo "scale=3; ${compile_time_in_ns} / 1000000000" | bc)s"
+
+  wu_execute_time_in_ns=$(sed -n '/<Statistic/,/\/>/{
+    /<Statistic/ { h; b next }
+    /\/>/ { H; x; /kind=\"TimeElapsed\".*s=\"global\"/p; b next }
+    H
+    :next
+  }' $wufile | grep "value=" | cut -d'"' -f 2)
+  wu_execute_time="$(echo "scale=3; ${wu_execute_time_in_ns} / 1000000000" | bc)s"
+}

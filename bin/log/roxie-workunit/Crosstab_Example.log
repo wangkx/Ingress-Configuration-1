@@ -1,0 +1,20 @@
+EXEC: Creating PIPE program process : '/opt/HPCCSystems/8.0.20/clienttools/bin/eclcc -E "./ecl/Crosstab_Example.ecl"' - hasinput=0, hasoutput=1 stderrbufsize=0
+EXEC: Pipe: process 94255 complete 0
+jsocket(9,2555) shutdown err = 57 : C!:63858 -> 40.88.221.36:8010 (3)
+jsocket(9,2555) shutdown err = 57 : C!:63862 -> 40.88.221.36:8010 (3)
+Using eclcc path /opt/HPCCSystems/8.0.20/clienttools/bin/eclcc
+
+Deploying ECL Archive ./ecl/Crosstab_Example.ecl
+
+Deployed
+   wuid: W20210616-162702
+   state: compiled
+
+Running deployed workunit W20210616-162702
+<Result>
+<Dataset name='Result 1'>
+ <Row><value1>C</value1><grpcount>2</grpcount><grpsum>3</grpsum><avesum>1.5</avesum></Row>
+ <Row><value1>B</value1><grpcount>1</grpcount><grpsum>4</grpsum><avesum>4.0</avesum></Row>
+ <Row><value1>A</value1><grpcount>2</grpcount><grpsum>8</grpsum><avesum>4.0</avesum></Row>
+</Dataset>
+</Result>

@@ -1,0 +1,65 @@
+EXEC: Creating PIPE program process : '/opt/HPCCSystems/8.0.20/clienttools/bin/eclcc -E "./ecl/DICTIONARY_Example.ecl"' - hasinput=0, hasoutput=1 stderrbufsize=0
+EXEC: Pipe: process 94432 complete 0
+jsocket(9,2555) shutdown err = 57 : C!:63873 -> 40.88.221.36:8010 (3)
+Using eclcc path /opt/HPCCSystems/8.0.20/clienttools/bin/eclcc
+
+Deploying ECL Archive ./ecl/DICTIONARY_Example.ecl
+
+Deployed
+   wuid: W20210616-162758
+   state: compiled
+
+Running deployed workunit W20210616-162758
+<Result>
+<Dataset name='Result 1'>
+ <Row><color>Orange</color><code>3</code></Row>
+ <Row><color>Green</color><code>5</code></Row>
+ <Row><color>White</color><code>9</code></Row>
+ <Row><color>Yellow</color><code>4</code></Row>
+ <Row><color>Blue</color><code>6</code></Row>
+ <Row><color>Violet</color><code>7</code></Row>
+ <Row><color>Red</color><code>2</code></Row>
+ <Row><color>Grey</color><code>8</code></Row>
+ <Row><color>Black</color><code>0</code></Row>
+ <Row><color>Brown</color><code>1</code></Row>
+</Dataset>
+<Dataset name='Result 2'>
+ <Row><color>Grey</color><code>8</code></Row>
+ <Row><color>Yellow</color><code>4</code></Row>
+ <Row><color>Blue</color><code>6</code></Row>
+ <Row><color>Black</color><code>0</code></Row>
+ <Row><color>Green</color><code>5</code></Row>
+ <Row><color>Orange</color><code>3</code></Row>
+ <Row><color>Violet</color><code>7</code></Row>
+ <Row><color>Red</color><code>2</code></Row>
+ <Row><color>White</color><code>9</code></Row>
+ <Row><color>Brown</color><code>1</code></Row>
+</Dataset>
+<Dataset name='Result 3'>
+ <Row><code>7</code><color>Violet</color></Row>
+ <Row><code>2</code><color>Red</color></Row>
+ <Row><code>1</code><color>Brown</color></Row>
+ <Row><code>0</code><color>Black</color></Row>
+ <Row><code>3</code><color>Orange</color></Row>
+ <Row><code>4</code><color>Yellow</color></Row>
+ <Row><code>5</code><color>Green</color></Row>
+ <Row><code>6</code><color>Blue</color></Row>
+ <Row><code>8</code><color>Grey</color></Row>
+ <Row><code>9</code><color>White</color></Row>
+</Dataset>
+<Dataset name='Result 4'>
+ <Row><Result_4>2</Result_4></Row>
+</Dataset>
+<Dataset name='Result 5'>
+ <Row><Result_5>Yellow</Result_5></Row>
+</Dataset>
+<Dataset name='Result 6'>
+ <Row><Result_6>true</Result_6></Row>
+</Dataset>
+<Dataset name='Result 7'>
+ <Row><Result_7>true</Result_7></Row>
+</Dataset>
+<Dataset name='Result 8'>
+ <Row><Result_8>true</Result_8></Row>
+</Dataset>
+</Result>

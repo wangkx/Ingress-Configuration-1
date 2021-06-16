@@ -1,0 +1,9 @@
+#!/bin/bash
+
+#server="20.62.178.25"
+server="40.88.221.36"
+
+
+#ecl run thor -s ${server}  <ecl file path>
+rm -rf ~/tmp/end2end-time.out
+./end2end-time.sh -s $server -t "roxie-workunit" | tee -a ~/tmp/end2end-time.out

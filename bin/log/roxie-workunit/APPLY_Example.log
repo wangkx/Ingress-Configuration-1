@@ -1,0 +1,39 @@
+EXEC: Creating PIPE program process : '/opt/HPCCSystems/8.0.20/clienttools/bin/eclcc -E "./ecl/APPLY_Example.ecl"' - hasinput=0, hasoutput=1 stderrbufsize=0
+EXEC: Pipe: process 94196 complete 0
+jsocket(9,2555) shutdown err = 57 : C!:63853 -> 40.88.221.36:8010 (3)
+jsocket(9,2555) shutdown err = 57 : C!:63855 -> 40.88.221.36:8010 (3)
+Using eclcc path /opt/HPCCSystems/8.0.20/clienttools/bin/eclcc
+
+Deploying ECL Archive ./ecl/APPLY_Example.ecl
+
+Deployed
+   wuid: W20210616-162644
+   state: compiled
+
+Running deployed workunit W20210616-162644
+<Result>
+ <Info><Source>user</Source><Message>Begin APPLY....</Message></Info>
+ <Info><Source>user</Source><Message>9,</Message></Info>
+ <Info><Source>user</Source><Message>1,</Message></Info>
+ <Info><Source>user</Source><Message>1</Message></Info>
+ <Info><Source>user</Source><Message>xx                  </Message></Info>
+ <Info><Source>user</Source><Message>17,</Message></Info>
+ <Info><Source>user</Source><Message>11,</Message></Info>
+ <Info><Source>user</Source><Message>2</Message></Info>
+ <Info><Source>user</Source><Message>xx                  </Message></Info>
+ <Info><Source>user</Source><Message>24,</Message></Info>
+ <Info><Source>user</Source><Message>29,</Message></Info>
+ <Info><Source>user</Source><Message>3</Message></Info>
+ <Info><Source>user</Source><Message>xx                  </Message></Info>
+ <Info><Source>user</Source><Message>30,</Message></Info>
+ <Info><Source>user</Source><Message>54,</Message></Info>
+ <Info><Source>user</Source><Message>4</Message></Info>
+ <Info><Source>user</Source><Message>xx                  </Message></Info>
+ <Info><Source>user</Source><Message>...End APPLY</Message></Info>
+<Dataset name='Result 2'>
+ <Row><fib1>9</fib1><fib2>1</fib2><mycounter>1</mycounter><extra>xx                  </extra></Row>
+ <Row><fib1>17</fib1><fib2>11</fib2><mycounter>2</mycounter><extra>xx                  </extra></Row>
+ <Row><fib1>24</fib1><fib2>29</fib2><mycounter>3</mycounter><extra>xx                  </extra></Row>
+ <Row><fib1>30</fib1><fib2>54</fib2><mycounter>4</mycounter><extra>xx                  </extra></Row>
+</Dataset>
+</Result>
