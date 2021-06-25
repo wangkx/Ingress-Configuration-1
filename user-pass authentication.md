@@ -2,18 +2,13 @@
 
 Protect an Application (eclWatch) with basic authentication, behind NGINX
 
-## Prerequisites
+# Prerequisites
+First, install homebrew [here](https://brew.sh).  Then install wget
 
-    First, install brew
-    ```
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    
-    ```
-    Install wget
-    ```
-    brew install wget
-    
-    ```
+```
+brew install wget
+```     
+
 ### Create NGINX Controller
 ```
 wget https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.47.0/deploy/static/provider/cloud/deploy.yaml
@@ -34,39 +29,44 @@ Create the controller:
 kubectl apply -f deploy.yaml
 
 ```
-## Create a namespace for application
+## Create application
 Create application and service
-```
-kubectl create ns ABC
 
 ```
-```
-kubectl applu -f ABC.yaml
+kubectl apply -f <name>.yaml
 
 ```
-### Create Password file 
-contains username and passowrd for users
+## Create a Password file 
+contains username and password for users
 
 ```
 htpasswd -c auth <username>
 
 ```
-Generate a password when prompted. Run 'cat auth' to see password for user1
+Generate a password when prompted. Run:
+```
+cat auth
 
-### Use file to create Ingress rule
+```
+to see the password that is generated.
+
+## Use a file to create Ingress rule
 This file protects the application.  
 
 ```
 kubectl create secret generic basic-auth --from-file auth
 
 ``` 
-Namespace is defualt, do not use '-n'
 Then, apply the rule.
+```
+kubectl apply -f <name>
+
+```
 
 **Run 'kubectl get secret', which should show the basic authentication created**
-## Go to the external IP provided
+## Go to the external IP provided on web browser
 ```
 kubectl get svc -n ingress-nginx
 
 ```
-### Enter username And Password
+### Enter username And Password when prompted
