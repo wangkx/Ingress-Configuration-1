@@ -145,7 +145,7 @@ kind: Ingress
 metadata:
   name: eclwatch-ingress
   annotations:
-  ANNOTATIONS HERE
+    ANNOTATIONS HERE
 
 spec:
   rules:
