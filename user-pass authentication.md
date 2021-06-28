@@ -31,9 +31,29 @@ kubectl apply -f deploy.yaml
 ```
 ## Create application
 Create application and service
+Open a file named eclwatch-ingress.yaml
 
+```YAML
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: eclwatch-ingress
+  annotations:
+    kubernetes.io/ingress.class: nginx
+spec:
+  rules:
+  -  http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+         service:
+           name: eclwatch
+           port: 
+             number: 8010
 ```
-kubectl apply -f <name>.yaml
+```
+kubectl apply -f eclwatch-ingress.yaml
 
 ```
 ## Create a Password file 
@@ -54,19 +74,45 @@ to see the password that is generated.
 This file protects the application.  
 
 ```
-kubectl create secret generic basic-auth --from-file auth
+kubectl create secret generic basic-auth --from-file=auth
 
 ``` 
-Then, apply the rule.
+Then, create the ingress rule.
 ```
-kubectl apply -f <name>
+nano ingress-rule.yaml
 
+```
+```YAML
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: eclwatch-ingress
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/auth-type: basic # Specifiying basic authentication
+    nginx.ingress.kubernetes.io/auth-secret: basic-auth # name of secret
+    nginx.ingress.kubernetes.io/auth-realm: "Authetnication required"
+spec:
+  rules:
+  -  http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+         service:
+           name: eclwatch
+           port:
+             number: 8010
+
+```
+```
+kubectl apply -f ingress-rule.yaml
 ```
 
 **Run 'kubectl get secret', which should show the basic authentication created**
-## Go to the external IP provided on web browser
 ```
 kubectl get svc -n ingress-nginx
 
 ```
-### Enter username And Password when prompted
+Go to the external IP for the specified service that will be protected, it will prompt for user and password.
