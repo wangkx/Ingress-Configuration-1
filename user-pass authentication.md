@@ -110,7 +110,8 @@ spec:
 kubectl apply -f ingress-rule.yaml
 ```
 
-**Run 'kubectl get secret', which should show the basic authentication created**
+## Test rule
+**Run 'kubectl get service', which should show the basic authentication created**
 ```
 kubectl get svc -n ingress-nginx
 
