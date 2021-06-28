@@ -139,7 +139,7 @@ When set to *false* ingress, will send request to upstream pointed by sticky coo
 
 
 ## Create a file to test the annotations
-```
+```YAML
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
