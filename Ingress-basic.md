@@ -29,7 +29,7 @@ Dynamic public IP is assigned when the load balancer is created.  Get the addres
 ## Deploy Instance of an application
 
 create a yaml file, copy in the following:
-```
+```YAML
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
