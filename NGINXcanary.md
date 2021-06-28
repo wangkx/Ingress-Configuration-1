@@ -4,7 +4,7 @@ traffic to be directed to a new version and the larger set of users to be direct
 
 ## Enable canary annotations
 open a yaml file named deployment.yaml and use the following content:
-```
+```YAML
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -33,7 +33,7 @@ kubectl apply -f deployment.yaml
 
 Then, open another file and save it as canary-ingress.yaml, and use the following content to add the annotations to.
 
-```
+```YAML
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
