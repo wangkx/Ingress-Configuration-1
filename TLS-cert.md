@@ -3,7 +3,7 @@ First deploy the NGINX ingress controller in an Azure Kubernetes Service (AKS) c
 Then, generate certificates, and create a Kubernetes secret for use with the ingress route. 
 Two applications are run in the AKS cluster, both accessible over one IP address.
 * Run Azure [CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) version 2.0.64 or later
-* Use the latest release of [Helm}(https://helm.sh/docs/intro/install/).
+* Use the latest release of [Helm](https://helm.sh/docs/intro/install/).
 
 ## Create an Ingress Controller
 
@@ -40,4 +40,4 @@ kubectl create secret tls <name> \
     --key <name>.key \
     --cert <name>.crt
  ```
-# Run Demo Application
+## Run Demo Application
