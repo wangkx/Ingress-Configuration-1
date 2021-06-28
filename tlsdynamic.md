@@ -48,7 +48,7 @@ helm install cert-manager jetstack/cert-manager \
 ## Creating a CA cluster issuer
 Create a cluster issuer, for example, cluster-issuer.yaml.  Replace the email address with a valid email address.
 
-```
+```YAML
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
 metadata:
@@ -71,7 +71,7 @@ kubectl apply -f cluster-issuer.yaml
 ## Creating an Ingress route
 Create a file using the below example YAML (example-ingress.yaml). Replace the host and hostname with DNS name created previously.
 
-```
+```YAML
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
