@@ -117,5 +117,5 @@ kubectl get svc -n ingress-nginx
 Go to the external IP for the specified service that will be protected, it will prompt for user and password.
 
 ### Limitations
-1 user only
-admin generates password
+* 1 user only
+* admin generates password
