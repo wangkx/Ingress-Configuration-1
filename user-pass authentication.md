@@ -115,7 +115,10 @@ kubectl get svc -n ingress-nginx
 
 ```
 Go to the external IP for the specified service that will be protected, it will prompt for user and password.
+If "cancel" is clicked, 401 Authorization error is returned.
 
 ### Limitations
 * 1 user only
 * admin generates password
+
+
