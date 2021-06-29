@@ -115,10 +115,20 @@ kubectl get svc -n ingress-nginx
 
 ```
 Go to the external IP for the specified service that will be protected, it will prompt for user and password.
-If "cancel" is clicked, 401 Authorization error is returned.
+If "cancel" is clicked or user/pass is incorrect, 401 Authorization error is returned.
 
 ### Limitations
 * 1 user only
 * admin generates password
 
+
+## Use Whitelisting 
+Specify allowed client IP source ranges through the annotation:
+```
+nginx.ingress.kubernetes.io/whitelist-source-range: IP_ADDRESS/24
+
+```
+The value is a comma separated list of CIDRs, e.g. **10.0.0.0/24,172.10.0.1**.
+When an IP address not specified in the annotation tries to access the IP address,
+403 forbidden error is returned.
 
