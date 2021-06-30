@@ -1,5 +1,5 @@
 # Canary Deployments with NGINX
-This is used for running two versions of a service parallel to eachother, to validate the expected behavior of the new version.  The annotations allow a small percentage of
+This is used for running two versions of a service parallel to eachother(Kevin? space), to validate the expected behavior of the new version.  The annotations allow a small percentage of
 traffic to be directed to a new version and the larger set of users to be directed to the other version.  The canary annotation enables the Ingress spec to act as an alternative service for requests to route to depending on the rules applied. 
 
 ## Enable canary annotations
@@ -85,3 +85,4 @@ kubectl apply -f canary-ingress.yaml
 
 Currently a maximum of one canary ingress can be applied per Ingress rule.
 
+(Kevin? We need to explain how to test)
