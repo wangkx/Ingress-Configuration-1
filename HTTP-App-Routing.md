@@ -14,7 +14,7 @@ az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addo
 
 ```
 
-After the cluster is deployed/updated, retreive the DNS zone name.
+After the cluster is deployed/updated, retreive (Kevin? typo) the DNS zone name.
 ```
 az aks show --resource-group myResourceGroup --name myAKSCluster --query addonProfiles.httpApplicationRouting.config.HTTPApplicationRoutingZoneName -o table
 
@@ -31,14 +31,14 @@ The HTTP application routing add-on can be enabled through the Azure portal when
 * After the cluster is deployed, browse to the auto-created AKS resource group and select the DNS zone.  This name is needed to deploy applications to the AKS cluster.
 
 ## Connect to the AKS cluster
-Install kubectl locally, if not on Azure Cloud Shell
+Install kubectl locally, if not on Azure Cloud Shell (Kevin? Install aks cli? Why need: az aks install-cli?)
 ```
 az aks install-cli
 
 ```
 Connect to Kubernetes cluster:
 ```
-az aks get-credentials --resource-group MyResourceGroup --name MyAKSCluster
+az aks get-credentials --resource-group MyResourceGroup --name MyAKSCluster (Kevin? Why under the 'Connect to Kubernetes cluster'?)
 ```
 ## Use HTTP Application routing
 The HTTP application routing solution may only be triggered on Ingress resources that are annotated as follows:
@@ -75,13 +75,13 @@ kubectl apply -f http-application-routing.yaml
 ```
 
 ## Remove HTTP application routing
-The HTTP routing solution can be removed using the Azure CLI. To do so run the following command, substituting your AKS cluster and resource group name.
+The HTTP routing solution can be removed using the Azure CLI. (Kevin? remove - not before)To do so run the following command, substituting your AKS cluster and resource group name.
 
 ```
 az aks disable-addons --addons http_application_routing --name myAKSCluster --resource-group myResourceGroup --no-wait
 
 ```
-To delete resources, use the kubectl delete command. Specify the resource type, resource name, and namespace. 
+To delete resources, use the kubectl delete command. Specify the resource type (Kevin?where), resource name (Kevin?where), and namespace. 
 
 ```
 kubectl delete configmaps addon-http-application-routing-nginx-configuration --namespace kube-system
