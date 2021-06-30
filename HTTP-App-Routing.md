@@ -75,13 +75,13 @@ kubectl apply -f http-application-routing.yaml
 ```
 
 ## Remove HTTP application routing
-The HTTP routing solution can be removed using the Azure CLI. To do so run the following command, substituting your AKS cluster and resource group name.
+The HTTP routing solution can be removed using the Azure CLI. To do so run the following command, substituting your AKS cluster and resource group name. (Kevin: not mentioned in other place - why here?)
 
 ```
 az aks disable-addons --addons http_application_routing --name myAKSCluster --resource-group myResourceGroup --no-wait
 
 ```
-To delete resources, use the kubectl delete command. Specify the resource type, resource name, and namespace. 
+To delete resources, use the kubectl delete command. Specify the resource type(Kevin: where?), resource name(Kevin: where?), and namespace. 
 
 ```
 kubectl delete configmaps addon-http-application-routing-nginx-configuration --namespace kube-system
