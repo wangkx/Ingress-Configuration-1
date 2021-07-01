@@ -40,6 +40,7 @@ kubectl create secret tls <name> \
     --key hpcc-secret.key \
     --cert hpcc-secret.crt
  ```
+ ?What are hpcc-secret.key and hpcc-secret.key? You may need to explain them here.
 ## Run Application
 Open this file, name tls-cert.yaml
 ```YAML
@@ -98,8 +99,8 @@ spec:
 ```
 ```
 # create an ingress resource
-$ kubectl apply -f tls-ingress.yaml
-# example output
+$ kubectl apply -f tls-ingress.yaml ?Do we need to apply both tls-ingress.yaml and tls-cert.yaml
+# example output ?Showing example output is a good idea. We may need to try that for every places when you run a conmmand. 
 ingress.extensions/eclwatch-ingress created
 ```
 
@@ -113,10 +114,10 @@ The -v parameter in the curl command outputs verbose information, including the 
 
 # Clean up resources
 ```
-helm list
+helm list ?Should you explain the result of this command and what you need from the result? Do the same for other documents.
 ```
 Uninstall the releases with the helm uninstall command.
-Remove the sample applications:
+Remove the sample applications: ?Should we change it to 'Release the resources using the helm uninstall command.'  Do the same for other documents.
 ```
 kubectl delete -f tls-ingress.yaml
 kubectl delete -f tls-cert.yaml
