@@ -17,7 +17,7 @@ An Azure public IP address will be created for the ingress controller.  To get t
 ```bash
 kubectl get service
 ```
-
+?Give a result of the public IP address. You may use it in the next command and make it clear for a reader.
 ## Configure an FQDN for the ingress controller IP address
 Adds a record to the DNS zone
 ```bash
@@ -25,7 +25,7 @@ Adds a record to the DNS zone
 IP="MY_EXTERNAL_IP"
 
 # Name to associate with public IP address
-DNSNAME="demo-aks-ingress"
+DNSNAME="demo-aks-ingress" ?why "demo-aks-ingress"? Better explain.
 
 # Get the resource-id of the public ip
 PUBLICIPID=$(az network public-ip list --query "[?ipAddress!=null]|[?contains(ipAddress, '$IP')].[id]" --output tsv)
@@ -43,8 +43,10 @@ Add the Jetstack Helm repository
 ```
 helm repo add jetstack https://charts.jetstack.io
 ```
-Update local Helm chart repository cache using 'helm repo update'
-
+Update local Helm chart repository cache
+```
+helm repo update
+```
 Install cert-manager using Helm chart
 ```
 helm install cert-manager jetstack/cert-manager \
@@ -55,7 +57,7 @@ helm install cert-manager jetstack/cert-manager \
 ```
 
 ## Creating a CA cluster issuer
-Create a cluster issuer, for example, cluster-issuer.yaml.  Replace the email address with a valid email address.
+Create a cluster issuer, for example, cluster-issuer.yaml.  ?Should be 'Create a ClusterIssuer configuration file with a name, ex. cluster-issuer.yaml'. Please use the same style in other docs. Replace the email address with a valid email address. ?Explain why we need the email address.
 
 ```YAML
 apiVersion: cert-manager.io/v1
@@ -126,7 +128,7 @@ Test this configuration by opening a web browser, and go to
 example-ingress.MY_CUSTOM_DOMAIN
 ```
 of the ingress controller.
-
+?Explain what we should see if the configuration works. Can you alse use the curl to test as you mentioned in the tls-cert.md?
 ## Clean up Resources
 
 Delete resources indiviudally:
