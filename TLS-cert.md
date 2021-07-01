@@ -35,13 +35,16 @@ openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
 ```
 ## Create Kubernetes secret for TLS certificate
 To allow Kubernetes to use the TLS certificate and private key for the ingress controller, create and use a Secret.
+ The secret is defined once, and uses the certificate and key file created in the previous step. You then reference this secret when you define ingress routes.
+
+The following example creates a Secret name aks-ingress-tls:
 ```
 kubectl create secret tls <name> \
-    --key hpcc-secret.key \
-    --cert hpcc-secret.crt
+    --key hpcc-secret.key \ # key file created in previous step
+    --cert hpcc-secret.crt # certificate created in pervious step
  ```
 ## Run Application
-Open this file, name tls-cert.yaml
+Open this file, name tls-cert.yaml.  Eclwatch is the name of the service.
 ```YAML
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -61,6 +64,7 @@ spec:
            port: 
              number: 8010
 ```
+Create the service using:
 ```
 kubectl apply -f tls-cert.yaml
 ```
@@ -112,11 +116,21 @@ curl -v -k --resolve hpcc.azure.com:443:EXTERNAL_IP https://azure.azure.com
 The -v parameter in the curl command outputs verbose information, including the TLS certificate received. Half-way through your curl output, you can verify that your own TLS certificate was used. The -k parameter continues loading the page even though we're using a self-signed certificate.
 
 # Clean up resources
+List the Helm releases with the helm list command.
 ```
 helm list
 ```
-Uninstall the releases with the helm uninstall command.
-Remove the sample applications:
+Look for chart named nginx-ingress
+```
+$ helm list
+NAME                    
+nginx-ingress
+```
+Uninstall this release using:
+```
+helm uninstall nginx-ingress
+```
+Delete the releases with the helm uninstall command.
 ```
 kubectl delete -f tls-ingress.yaml
 kubectl delete -f tls-cert.yaml
