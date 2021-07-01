@@ -14,7 +14,7 @@ az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addo
 
 ```
 
-After the cluster is deployed/updated, retreive the DNS zone name.
+After the cluster is deployed/updated, retrieve the DNS zone name.
 ```
 az aks show --resource-group myResourceGroup --name myAKSCluster --query addonProfiles.httpApplicationRouting.config.HTTPApplicationRoutingZoneName -o table
 
@@ -32,11 +32,12 @@ The HTTP application routing add-on can be enabled through the Azure portal when
 
 ## Connect to the AKS cluster
 Install kubectl locally, if not on Azure Cloud Shell
+download the kubectl checksum file on linux:
 ```
-az aks install-cli
-
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 ```
-Connect to Kubernetes cluster:
+*Configure kubectl to connect to Kubernetes cluster:*
+To configure kubectl to connect to your Kubernetes cluster, use the az aks get-credentials command. The following example gets credentials for the AKS cluster named MyAKSCluster in the MyResourceGroup
 ```
 az aks get-credentials --resource-group MyResourceGroup --name MyAKSCluster
 ```
@@ -81,8 +82,25 @@ The HTTP routing solution can be removed using the Azure CLI. To do so run the f
 az aks disable-addons --addons http_application_routing --name myAKSCluster --resource-group myResourceGroup --no-wait
 
 ```
-To delete resources, use the kubectl delete command. Specify the resource type, resource name, and namespace. 
+Look for addon-http-application-routing resources using the following kubectl get commands:
+```
+kubectl get deployments 
+kubectl get services 
+kubectl get configmaps 
+kubectl get secrets 
+```
+To delete resources, use the kubectl delete command. 
 
+__Example output of kubectl get configmaps__ with namespace "kube-system"
+```
+$ kubectl get configmaps --namespace kube-system
+
+NAMESPACE     NAME                                                       DATA   AGE
+kube-system   addon-http-application-routing-nginx-configuration         0      9m7s
+kube-system   addon-http-application-routing-tcp-services                0      9m7s
+kube-system   addon-http-application-routing-udp-services                0      9m7s
+```
+Use the following command to delete one of the above configmaps:
 ```
 kubectl delete configmaps addon-http-application-routing-nginx-configuration --namespace kube-system
 ```
