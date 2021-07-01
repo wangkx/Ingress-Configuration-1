@@ -15,7 +15,7 @@ Use helm to deploy an Ingress NGINX controller
 
 ```
 helm install nginx-ingress ingress-nginx/ingress-nginx \
-    --set controller.replicaCount=2 \
+    --set controller.replicaCount=2 \ # two replicas of the NGINX ingress controllers are deployed 
     --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
     --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux \
     --set controller.admissionWebhooks.patch.nodeSelector."beta\.kubernetes\.io/os"=linux
@@ -28,7 +28,7 @@ Dynamic public IP is assigned when the load balancer is created.  Get the addres
 ```
 ## Deploy Instance of an application
 
-create a yaml file, copy in the following:
+create a yaml file named eclwatch-ingress.yaml, copy in the following:
 ```YAML
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -51,7 +51,7 @@ spec:
 ```
 create the ingress resource using: 
 ```
-kubectl apply -f <file>
+kubectl apply -f eclwatch-ingress.yaml
 
 ```
 ## Test the Ingress controller
@@ -63,7 +63,7 @@ helm list --namespace ingress-basic
 
 helm uninstall nginx-ingress
 
-kubectl delete -f <file>
+kubectl delete -f eclwatch-ingress.yaml
 
 ```
 
