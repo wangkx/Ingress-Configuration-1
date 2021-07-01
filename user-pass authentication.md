@@ -3,13 +3,14 @@
 Add an authentication in an Ingress rule using a secret that generates a file with *htpasswd*
 
 ## Prerequisites
-First, install homebrew [here](https://brew.sh).  Then install wget
+* First, install homebrew [here](https://brew.sh).  
+* Then install wget
 
 ```
 brew install wget
 ```     
 * Run the latest version of Helm
-**Deploy NGINX controller**
+**Add NGINX repository**
 Option 1: using Helm:
 ```
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
@@ -21,19 +22,19 @@ Option 2: Docker Desktop:
 ```
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.47.0/deploy/static/provider/cloud/deploy.yaml
 ```
-Option 3: Download the file with wget:
+Option 3, Step 1: Download the file with wget:
 
 ```
 wget https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.47.0/deploy/static/provider/cloud/deploy.yaml
 
 ```
-*Create the controller and dependencies:*
+*Step 2:*
 ``` 
 kubectl apply -f deploy.yaml
 
 ```
 
-## Create service
+## Deploy instance of an application
 Create service
 Open a file named eclwatch-ingress.yaml
 
@@ -61,7 +62,7 @@ kubectl apply -f eclwatch-ingress.yaml
 
 ```
 ## Create a Password file 
-contains username and password for users
+File 'auth' contains username and password for users
 
 ```
 htpasswd -c auth user1
@@ -85,10 +86,13 @@ kubectl create secret generic basic-auth --from-file=auth
 ``` 
 ## Create ingress rule
 Protect the application
+* Applying annotations to protect the service in spec
+* Open the yaml file, named ingress-rule.yaml
 ```
 nano ingress-rule.yaml
 
 ```
+* Add annotations to specify basic authentication and name of secret
 ```YAML
 
 apiVersion: networking.k8s.io/v1
@@ -113,7 +117,7 @@ spec:
              number: 8010
 
 ```
-Apply
+Deploy the application using "kubectl apply"
 ```
 kubectl apply -f ingress-rule.yaml
 ```
