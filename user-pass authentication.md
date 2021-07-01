@@ -3,13 +3,13 @@
 Add an authentication in an Ingress rule using a secret that generates a file with *htpasswd*
 
 ## Prerequisites
-First, install homebrew [here](https://brew.sh).  Then install wget
+First, install homebrew [here](https://brew.sh).  Then install wget ?Use bullet
 
 ```
 brew install wget
 ```     
 * Run the latest version of Helm
-**Deploy NGINX controller**
+**Deploy NGINX controller** ?in other documents, I saw different titles like "Add Ingress-nginx repository, ...". We should use the same terms. ?add new line for option 1
 Option 1: using Helm:
 ```
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
@@ -27,13 +27,13 @@ Option 3: Download the file with wget:
 wget https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.47.0/deploy/static/provider/cloud/deploy.yaml
 
 ```
-*Create the controller and dependencies:*
+*Create the controller and dependencies:* ?not clear this is for option 3 only or not
 ``` 
 kubectl apply -f deploy.yaml
 
 ```
 
-## Create service
+## Create service ?in other documents, I saw different titles like "Deploy Instance of an application ...". We should use the same terms.
 Create service
 Open a file named eclwatch-ingress.yaml
 
@@ -61,7 +61,7 @@ kubectl apply -f eclwatch-ingress.yaml
 
 ```
 ## Create a Password file 
-contains username and password for users
+contains username and password for users ?no subject
 
 ```
 htpasswd -c auth user1
@@ -85,7 +85,7 @@ kubectl create secret generic basic-auth --from-file=auth
 ``` 
 ## Create ingress rule
 Protect the application
-```
+```?Add a line to describe what you do next
 nano ingress-rule.yaml
 
 ```
@@ -113,7 +113,7 @@ spec:
              number: 8010
 
 ```
-Apply
+Apply ?add 'the ingress-rule.yaml'. In your documents, there are many places for 'kubectl apply'. You should use the same style for the explainations.
 ```
 kubectl apply -f ingress-rule.yaml
 ```
@@ -143,7 +143,7 @@ When an IP address not specified in the annotation tries to access the IP addres
 The auth-secret can have two forms:
 
 * auth-file - default, an htpasswd file in the key auth within the secret
-* auth-map - the keys of the secret are the usernames, and the values are the hashed passwords
+* auth-map - the keys of the secret are the usernames, and the values are the hashed passwords ?Can we give some examples for auth-map
 
 ```
 nginx.ingress.kubernetes.io/auth-secret-type: [auth-file|auth-map]
