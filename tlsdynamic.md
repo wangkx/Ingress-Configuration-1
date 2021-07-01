@@ -82,7 +82,7 @@ Use 'kubectl apply' command to create the issuer.
 kubectl apply -f cluster-issuer.yaml
 ```
 ## Creating an Ingress route
-Create a file using the below example YAML (example-ingress.yaml). Replace the host and hostname with DNS name created previously.
+Create a file using the below example YAML (example-ingress.yaml). Replace the host and hostname with FQDN name created previously.
 
 ```YAML
 apiVersion: networking.k8s.io/v1
