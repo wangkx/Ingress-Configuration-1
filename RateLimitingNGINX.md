@@ -1,7 +1,8 @@
 # NGINX Rate Limiting
 Allows you to limit the amount of HTTP requests a user can make in a given amount of time.  Used to mitigated DDoS attacks.  
-## Apply annotations
-Open a file, name it eclwatch-ratelimit.yaml
+## Apply annotations in ingress file
+Create Ingress Configuration file with name "eclwatch-ratelimit".yaml
+Ecl watch is the name of the service that will be used in the following example.
 
 ```
 apiVersion: networking.k8s.io/v1
@@ -10,6 +11,9 @@ metadata:
   name: eclwatch-ingress
   annotations:
     kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/limit-rps: "integer"
+    nginx.ingress.kubernetes.io/limit-burst-multiplier: "integer"
+
 spec:
   rules:
   -  http:
@@ -20,11 +24,10 @@ spec:
          service:
            name: eclwatch
            port:
-             number: 8010
+             number: 8010 # Port of the service 'eclwatch'
              
 ```
 
-Apply the annotation below to limit the number of requests from a given IP per second.  If the limit is exceeded, the user receives limit-req-status-code default: 503.
 The burst limit is set to this limit multiplied by the burst multiplier.
 
 
@@ -36,14 +39,14 @@ Use the annotation below to limit the number of requests from a given IP per min
 The burst limit is set to this limit multiplied by the burst multiplier.
 
 ```
-nginx.ingress.kubernetes.io/limit-rpm
+nginx.ingress.kubernetes.io/limit-rpm:
 
 ```
 
 Multiplier of rate limit for burst size.  The default is "5", so the annotation below will override the default.
 
 ```
-nginx.ingress.kubernetes.io/limit-burst-multiplier
+nginx.ingress.kubernetes.io/limit-burst-multiplier:
 
 ```
 
@@ -53,3 +56,4 @@ kubectl apply -f eclwatch-ratelimit.yaml
 ```
 
 Tested the annotations by visiting the same IP address using two web browsers after setting rpm to "1".  One web browser's request is accepted, the other returns "503".
+
