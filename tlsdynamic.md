@@ -22,10 +22,10 @@ kubectl get service
 Adds a record to the DNS zone
 ```bash
 # Public IP address of your ingress controller
-IP="MY_EXTERNAL_IP"
+IP="20.75.130.86"
 
 # Name to associate with public IP address
-DNSNAME="demo-aks-ingress"
+DNSNAME="ecl-aks-ingress"
 
 # Get the resource-id of the public ip
 PUBLICIPID=$(az network public-ip list --query "[?ipAddress!=null]|[?contains(ipAddress, '$IP')].[id]" --output tsv)
@@ -43,7 +43,11 @@ Add the Jetstack Helm repository
 ```
 helm repo add jetstack https://charts.jetstack.io
 ```
-Update local Helm chart repository cache using 'helm repo update'
+Update local Helm chart repository cache
+```
+helm repo update
+```
+
 
 Install cert-manager using Helm chart
 ```
@@ -55,7 +59,7 @@ helm install cert-manager jetstack/cert-manager \
 ```
 
 ## Creating a CA cluster issuer
-Create a cluster issuer, for example, cluster-issuer.yaml.  Replace the email address with a valid email address.
+Create a Cluster-Issuer configuration file with a name, for example, cluster-issuer.yaml.  Replace the email address with a valid email address.
 
 ```YAML
 apiVersion: cert-manager.io/v1
