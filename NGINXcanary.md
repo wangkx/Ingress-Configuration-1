@@ -1,8 +1,18 @@
 # Canary Deployments with NGINX
 This is used for running two versions of a service parallel to each other, to validate the expected behavior of the new version.  The annotations allow a small percentage of
 traffic to be directed to a new version and the larger set of users to be directed to the other version.  The canary annotation enables the Ingress spec to act as an alternative service for requests to route to depending on the rules applied. 
-*NGINX must be deployed*
 
+*NGINX must be deployed*. use Helm:
+```
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm repo update
+
+helm install ingress-nginx ingress-nginx/ingress-nginx
+```
+Or use Docker desktop:
+```
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.47.0/deploy/static/provider/cloud/deploy.yaml
+```
 ## Enable canary annotations
 open a yaml file named deployment.yaml and use the following content:
 ```YAML
