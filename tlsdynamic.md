@@ -81,8 +81,39 @@ Use 'kubectl apply' command to create the issuer.
 ```bash
 kubectl apply -f cluster-issuer.yaml
 ```
+## Run the application
+An ingress controller and a certificate management solution have been configured, applications can be run.  Create a file with the name "eclwatch.yaml", the service that will be created is eclwatch
+```YAML
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: eclwatch-ingress
+  annotations:
+    kubernetes.io/ingress.class: nginx
+spec:
+  rules:
+  -  http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+         service:
+           name: eclwatch
+           port:
+             number: 8010
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: eclwatch
+spec:
+  type: ClusterIP
+  ports:
+  - port: 8010
+```
+
 ## Creating an Ingress route
-Create a file using the below example YAML (example-ingress.yaml). Replace the host and hostname with FQDN name created previously.
+Create a file using the below example YAML named *example-ingress.yaml*. Replace the host and hostnames with FQDN name created previously.
 
 ```YAML
 apiVersion: networking.k8s.io/v1
@@ -124,13 +155,14 @@ Use this command to verify that *READY* is *True*.
 
 ## Test the ingress configuration
 
-Test this configuration by opening a web browser, and go to
+Test this configuration by opening a web browser, and go to the FQDN server.
 
 ```
-example-ingress.MY_CUSTOM_DOMAIN
+https://hpcc.eastus.cloudapp.azure.com
 ```
 of the ingress controller.
 
+The result should be that a valid certificate is created and the page is secure.
 ## Clean up Resources
 
 Delete resources indiviudally:
