@@ -56,11 +56,10 @@ kubectl apply -f eclwatch-ingress.yaml
 ```
 ## Test the Ingress controller
 Open a web browser, enter the external IP address of your NGINX controller
+
 The application will be displayed in the web browser
 ## Delete resources
 ```
-helm list --namespace ingress-basic
-
 helm uninstall nginx-ingress
 
 kubectl delete -f eclwatch-ingress.yaml
