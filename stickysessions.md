@@ -37,7 +37,7 @@ $ kubectl create -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/m
 service "http-svc" created
 replicationcontroller "http-svc" created
 
-$ kubectl get po
+$ kubectl get pod
 NAME             READY     STATUS    RESTARTS   AGE
 http-svc-p1t3t   1/1       Running   0          1d
 
