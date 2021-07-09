@@ -30,7 +30,7 @@ openssl req -new -newkey rsa:4096 -keyout client.key -out client.csr -nodes -sub
 openssl x509 -req -sha256 -days 365 -in client.csr -CA ca.crt -CAkey ca.key -set_serial 02 -out client.crt
 
 ```
-After completing CA Authentication, follow the instructions [linked here](https://kubernetes.github.io/ingress-nginx/examples/auth/client-$
+After completing CA Authentication, follow the instructions [linked here](https://kubernetes.github.io/ingress-nginx/examples/auth/client-certs/#creating-certificate-secrets)
 *Test HTTP Service*
 ```
 $ kubectl create -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/docs/examples/http-svc.yaml
