@@ -59,7 +59,7 @@ The application is now running on your Kubernetes cluster. To route traffic to e
 
 In the following example, traffic to EXTERNAL_IP is routed to the service named eclwatch. Traffic to EXTERNAL_IP/static is routed to the service named eclwatch for static assets.
 
-Create a file named eclwatch-ingress.yaml and copy in the following example YAML:
+Create a file named route-ingress.yaml and copy in the following example YAML:
 
 ```YAML
 apiVersion: networking.k8s.io/v1
