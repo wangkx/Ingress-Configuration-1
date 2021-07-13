@@ -5,16 +5,8 @@ traffic to be directed to a new version and the larger set of users to be direct
 ## Prerequisites
 * Install Helm
 * Create an Nginx Controller
-```
-helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
-helm repo update
+Install the (above)[https://github.com/amy88ma/Ingress-Configuration/blob/fca7ab129e0e384efe5943d0bd7d4113c0f1b58e/Jupyter%20Notebooks/Install-NGINX.ipynb]
 
-helm install ingress-nginx ingress-nginx/ingress-nginx
-```
-Or using Docker desktop:
-```
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.47.0/deploy/static/provider/cloud/deploy.yaml
-```
 ## Enable canary annotations
 open a yaml file named deployment.yaml and use the following content:
 ```YAML
