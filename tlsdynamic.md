@@ -1,8 +1,22 @@
 # Use TLS with Let's Encrypt
 
 Use a dynamic public IP address to create an HTTPS ingress controller on AKS
+## Prerequisites:
+* Install Helm 
+* Use Helm to create an ingress controller
+#### Installing Helm
+1. With Homebrew 
+```
+brew install helm
+```
+2. From script
+```
+$ curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
+$ chmod 700 get_helm.sh
+$ ./get_helm.sh
+```
 
-## Create an Ingress controller
+#### Create an Ingress controller
 
 Use Helm to deploy an NGINX ingress controller
 
