@@ -1,6 +1,10 @@
 # Sticky Sessions for Ingress NGINX controller
 Achieve session affinity using cookies
+## Prerequisites
+* Install Helm
+* Deploy the nginx controller
 
+[Install](https://github.com/amy88ma/Ingress-Configuration/blob/fca7ab129e0e384efe5943d0bd7d4113c0f1b58e/Jupyter%20Notebooks/Install-NGINX.ipynb) the above.
 
 ## Deployment
 Use the following annotations to configure session affinity:
