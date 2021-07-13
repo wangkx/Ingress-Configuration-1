@@ -41,17 +41,20 @@ az network public-ip show --ids $PUBLICIPID --query "[dnsSettings.fqdn]" --outpu
 ```
 
 ## Install cert-manager
-Add the Jetstack Helm repository
+The NGINX ingress controller supports TLS termination. There are several ways to retrieve and configure certificates for HTTPS. This demonstrates using cert-manager, which provides automatic Lets Encrypt certificate generation and management functionality.
+
+To install the cert-manager controller,
+
+First add the Jetstack Helm repository:
 ```
 helm repo add jetstack https://charts.jetstack.io
 ```
-Update local Helm chart repository cache
+Update local Helm chart repository cache:
 ```
 helm repo update
 ```
 
-
-Install cert-manager using Helm chart
+Then install cert-manager using Helm chart:
 ```
 helm install cert-manager jetstack/cert-manager \
   --set installCRDs=true \
@@ -61,7 +64,9 @@ helm install cert-manager jetstack/cert-manager \
 ```
 
 ## Creating a CA cluster issuer
-Create a Cluster-Issuer configuration file with a name, for example, cluster-issuer.yaml.  Replace the email address with a valid email address.
+Before certificates can be issued, cert-manager requires an Issuer or ClusterIssuer resource. These Kubernetes resources are identical in functionality, however Issuer works in a single namespace, and ClusterIssuer works across all namespaces. 
+
+Create a cluster issuer file, with the name cluster-issuer.yaml, using the following example manifest. Replace the email address with a valid address from your organization:
 
 ```YAML
 apiVersion: cert-manager.io/v1
@@ -79,7 +84,7 @@ spec:
         ingress:
           class: nginx
 ```
-Use 'kubectl apply' command to create the issuer.
+To create the issuer:
 ```bash
 kubectl apply -f cluster-issuer.yaml
 ```
@@ -157,14 +162,13 @@ Use this command to verify that *READY* is *True*.
 
 ## Test the ingress configuration
 
-Test this configuration by opening a web browser, and go to the FQDN server.
+Test this configuration by opening a web browser, and go to the FQDN server of the controller.
 
 ```
 https://hpcc.eastus.cloudapp.azure.com
 ```
-of the ingress controller.
 
-The result should be that a valid certificate is created and the page is secure.
+The result should show that a valid certificate is created and the page is secure.
 ## Clean up Resources
 
 Delete resources indiviudally:
