@@ -5,6 +5,7 @@ traffic to be directed to a new version and the larger set of users to be direct
 ## Prerequisites
 * Install Helm
 * Create an Nginx Controller
+
 Install the [above](https://github.com/amy88ma/Ingress-Configuration/blob/fca7ab129e0e384efe5943d0bd7d4113c0f1b58e/Jupyter%20Notebooks/Install-NGINX.ipynb)
 
 ## Enable canary annotations
