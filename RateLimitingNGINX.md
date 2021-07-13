@@ -4,7 +4,7 @@ Allows you to limit the amount of HTTP requests a user can make in a given amoun
 * Install Helm
 * Create the Nginx controller with Helm
 
-To install the above [prerequisites]()
+To install the above [prerequisites](https://github.com/amy88ma/Ingress-Configuration/blob/fca7ab129e0e384efe5943d0bd7d4113c0f1b58e/Jupyter%20Notebooks/Install-NGINX.ipynb)
 ## Apply annotations in ingress file
 Create Ingress Configuration file with name "eclwatch-ratelimit".yaml
 Ecl watch is the name of the service that will be used in the following example.
