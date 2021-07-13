@@ -1,4 +1,4 @@
-# Create an Ingress rule for User/Pass Authentication
+# Create an Ingress rule for Basic Authentication- Nginx
 
 Add an authentication in an Ingress rule using a secret that generates a file with *htpasswd*
 
