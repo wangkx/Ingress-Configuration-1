@@ -49,7 +49,7 @@ spec:
              number: 8010
 
 ```
-create the ingress resource using: 
+create the application: 
 ```
 kubectl apply -f eclwatch-ingress.yaml
 
@@ -59,7 +59,7 @@ The application is now running on your Kubernetes cluster. To route traffic to e
 
 In the following example, traffic to EXTERNAL_IP is routed to the service named eclwatch. Traffic to EXTERNAL_IP/static is routed to the service named eclwatch for static assets.
 
-Create a file named route-ingress.yaml and copy in the following example YAML:
+Create a file named ingress-route.yaml and copy in the following example:
 
 ```YAML
 apiVersion: networking.k8s.io/v1
@@ -104,9 +104,13 @@ spec:
               number: 8010
         path: /static(/|$)(.*)
 ```
+create the ingress resource using: 
+```
+kubectl apply -f eclwatch-ingress.yaml
 
+```
 ## Test the Ingress controller
-Open a web browser, enter the external IP address of your NGINX controller.  
+Open a web browser, enter the external IP address of the NGINX controller.  
 
 To get the external IP address:
 ```
