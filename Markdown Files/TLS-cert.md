@@ -1,4 +1,4 @@
-# Create an HTTPS ingress controller and use your own TLS certificates on AKS
+# Create an HTTPS ingress controller and use your own TLS certificates 
 First deploy the NGINX ingress controller in an Azure Kubernetes Service (AKS) cluster.
 Then, generate certificates, and create a Kubernetes secret for use with the ingress route. 
 Two applications are run in the AKS cluster, both accessible over one IP address.
