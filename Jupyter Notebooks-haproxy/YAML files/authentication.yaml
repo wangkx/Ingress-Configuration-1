@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: haproxy
+    ingress.kubernetes.io/auth-type: "basic"
+    ingress.kubernetes.io/auth-secret: "mypasswd"
+  name: eclwatch-ingress
+spec:
+  rules:
+   - http:
+      paths:
+      - backend:
+          serviceName: eclwatch
+          servicePort: 8010
+        path: /
