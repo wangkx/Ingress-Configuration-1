@@ -8,5 +8,5 @@
 | TLS with public IP  |  pass |   |   |   |
 | HTTP with Application Routing  |  pass |   |   |   |
 | Authentication with username/password  |  pass |   |   |   |
-| Rewrite |  pass |   |   |   |
+| Rewrite |  pass | pass  |   |   |
 | Blue/Green deployment |   |   |   |   |
