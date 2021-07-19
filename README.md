@@ -7,6 +7,5 @@
 | TLS with private IP  |  pass |   |   |   |
 | TLS with public IP  |  pass |   |   |   |
 | HTTP with Application Routing  |  pass |   |   |   |
-| Authentication with username/password  |  pass |   |   |   |
 | Rewrite |  pass | pass  |   |   |
 | Blue/Green deployment |   |   |   |   |
