@@ -1,0 +1,34 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: hpcc-ingress
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+spec:
+  rules:
+   - http:
+      paths:
+      - backend:
+          serviceName: eclwatch
+          servicePort: 8010
+        path: /eclwatch(/|$)(.*)
+      - backend:
+          serviceName: eclqueries
+          servicePort: 8002
+        path: /eclqueries(/|$)(.*)
+      - backend:
+          serviceName: esdl-sandbox
+          servicePort: 8899
+        path: /esdl(/|$)(.*)
+      - backend:
+          serviceName: sql2ecl
+          servicePort: 8510
+        path: /wssql(/|$)(.*)
+      - backend:
+          serviceName: eclservices
+          servicePort: 8010
+        path: /(.*)
+
+
