@@ -9,3 +9,4 @@
 | HTTP with Application Routing  |  pass |   |   |   |
 | Rewrite |  pass | pass  |   |   |
 | Blue/Green deployment |   |   |   |   |
+| TLS Termination |   |   |   |   |
