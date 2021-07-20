@@ -112,6 +112,9 @@ Events:
 Note: 
 
 Since you are using a self-signed certificate, you must set the -k flag in curl to disable hostname validation.
+
+send a request to your backend service with curl:
+
 ```curl -Lk https://20.190.209.141/backend/```
 
 ## Next Steps:
