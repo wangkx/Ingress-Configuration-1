@@ -2,7 +2,7 @@
 |Features/controller   | Nginx  |  HAProxy |  Istio | Linkerd  |
 |---|---|---|---|---|
 | Basic  |  pass | pass  |   |   |
-| Use TLS with own certificate  |  pass |   |   |   |       
+| Use TLS with own certificate  |  pass | pass  |   |   |       
 | Authentication with username/password  |  pass |  pass |   |   |
 | TLS with private IP  |  pass |   |   |   |
 | TLS with public IP  |  pass |   |   |   |
