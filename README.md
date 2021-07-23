@@ -6,7 +6,7 @@
 |  Basic Authentication | [pass](https://github.com/amy88ma/Ingress-Configuration/blob/9dc36e1b9ce0f61ce3a5162b424419b2a46eb897/Jupyter%20Notebooks/Nginx_BasicAuth.ipynb)  | [pass](https://github.com/amy88ma/Ingress-Configuration/blob/7f147990852a36eecd4958ca1b45b47d0791f486/Jupyter%20Notebooks-haproxy/HAProxy%20Authentication.ipynb)  |
 | TLS with static IP  | [pass](https://github.com/amy88ma/Ingress-Configuration/blob/1b847dbaf826bdb9dc372c2690d461f5c294f017/Jupyter%20Notebooks/TLSstatic.ipynb)  | pass  |
 | TLS with dynamic IP  | [pass](https://github.com/amy88ma/Ingress-Configuration/blob/faf9fae645fd5ce0cf25f279db15373866387251/Jupyter%20Notebooks/TLS_DynamicIP.ipynb)  |   |
-| HTTP with Application Routing  |  pass |   |
+| HTTP with Application Routing  |  [pass](https://github.com/amy88ma/Ingress-Configuration/blob/de145146a0e6678976fb8eb07036c45bb4d6022a/Markdown%20Files/HTTP-App-Routing.md) |   |
 | Rewrite  | pass  |  [pass](https://github.com/amy88ma/Ingress-Configuration/blob/31ffe7eddf8153a009dcf655f2de4b3f742b6b56/Jupyter%20Notebooks-haproxy/HAProxy_rewrite.ipynb) |
 |  Blue/Green deployment |   |   |
 | TLS Termination  |   |   |
