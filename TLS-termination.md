@@ -1,7 +1,7 @@
 # TLS termination
 Terminate HTTPS traffic from clients, relieving your upstream web and application servers of the computational load of SSL/TLS encryption.
 
-This example demonstrates how to terminate TLS through the nginx Ingress controller.
+This example demonstrates how to terminate TLS through the ingress-nginx controller.
 
 ## Prerequisites
 * Have a running Kubernetes cluster
@@ -122,3 +122,5 @@ Get a valid certificate from a certificate authority
 While a self-signed certificate is a simple and quick way to terminate TLS. In order to serve HTTPS traffic without being returned a security warning, you will need to get a certificate from an official Certificate Authority like Let's Encrypt.
 
 For the Open-Source API Gateway, Jetstack's cert-manager provides a simple way to manage certificates from Let's Encrypt. 
+
+To configure Jetstack cert-manager for HPCC TLS: [link](https://github.com/amy88ma/Ingress-Configuration/blob/dc5a5a06fb670d424e629899b2ac106b3339316a/Jupyter%20Notebooks/HPCC_TLS.ipynb)
