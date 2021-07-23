@@ -9,4 +9,4 @@
 | HTTP with Application Routing  |  [pass](https://github.com/amy88ma/Ingress-Configuration/blob/de145146a0e6678976fb8eb07036c45bb4d6022a/Markdown%20Files/HTTP-App-Routing.md) |   |
 | Rewrite  | pass  |  [pass](https://github.com/amy88ma/Ingress-Configuration/blob/31ffe7eddf8153a009dcf655f2de4b3f742b6b56/Jupyter%20Notebooks-haproxy/HAProxy_rewrite.ipynb) |
 |  Blue/Green deployment |   |   |
-| TLS Termination  |   |   |
+| TLS Termination  |  [pass](https://github.com/amy88ma/Ingress-Configuration/blob/69b2a789761a0f662a92e7b37263f39ab8727ec6/Markdown%20Files/TLS-termination.md) |   |
