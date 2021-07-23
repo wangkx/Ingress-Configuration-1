@@ -3,7 +3,7 @@
 |---|---|---|
 | Basic  | [pass](https://github.com/amy88ma/Ingress-Configuration/blob/deed9037aa036d14b2a6c0e361826eaf17eaf2b3/Jupyter%20Notebooks/Basic_ingress.ipynb)  |  [pass](https://github.com/amy88ma/Ingress-Configuration/blob/b45bb9724d51c8e64e2ec481bd0ec7b79fe8ac73/Jupyter%20Notebooks-haproxy/HAProxy_Basic.ipynb) |
 | Use TLS with own certificate  | [pass](https://github.com/amy88ma/Ingress-Configuration/blob/62d090685b6d2f58036014c08aaf331d19178886/Jupyter%20Notebooks/OwnTLScert.ipynb)  | [pass](https://github.com/amy88ma/Ingress-Configuration/blob/51e29beebd52c14e8b2a30fc98252f9f499368f3/Jupyter%20Notebooks-haproxy/OwnCert_HAProxy.ipynb)  |
-|  Basic Authentication | [pass](https://github.com/amy88ma/Ingress-Configuration/blob/9dc36e1b9ce0f61ce3a5162b424419b2a46eb897/Jupyter%20Notebooks/Nginx_BasicAuth.ipynb)  | pass  |
+|  Basic Authentication | [pass](https://github.com/amy88ma/Ingress-Configuration/blob/9dc36e1b9ce0f61ce3a5162b424419b2a46eb897/Jupyter%20Notebooks/Nginx_BasicAuth.ipynb)  | [pass](https://github.com/amy88ma/Ingress-Configuration/blob/7f147990852a36eecd4958ca1b45b47d0791f486/Jupyter%20Notebooks-haproxy/HAProxy%20Authentication.ipynb)  |
 | TLS with static IP  | pass  | pass  |
 | TLS with dynamic IP  | [pass](https://github.com/amy88ma/Ingress-Configuration/blob/faf9fae645fd5ce0cf25f279db15373866387251/Jupyter%20Notebooks/TLS_DynamicIP.ipynb)  |   |
 | HTTP with Application Routing  |  pass |   |
