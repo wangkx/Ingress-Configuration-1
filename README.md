@@ -7,6 +7,6 @@
 | TLS with static IP  | pass  | pass  |
 | TLS with dynamic IP  | [pass](https://github.com/amy88ma/Ingress-Configuration/blob/faf9fae645fd5ce0cf25f279db15373866387251/Jupyter%20Notebooks/TLS_DynamicIP.ipynb)  |   |
 | HTTP with Application Routing  |  pass |   |
-| Rewrite  | pass  |  pass |
+| Rewrite  | pass  |  [pass](https://github.com/amy88ma/Ingress-Configuration/blob/31ffe7eddf8153a009dcf655f2de4b3f742b6b56/Jupyter%20Notebooks-haproxy/HAProxy_rewrite.ipynb) |
 |  Blue/Green deployment |   |   |
 | TLS Termination  |   |   |
